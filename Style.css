@@ -120,17 +120,39 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+
+.slider-container-1::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(26, 26, 26, 0.95) 0%, transparent 100%);
+    z-index: 10;
+    pointer-events: none;
+    display: none;
 }
 
 /* foto-derly */
 .foto-derly{
-    position: static;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* foto-derly */
+.foto-derly{
     height: 100%;
     width: 100%;
     object-fit: contain;
     display: block;
     padding: 20px;
-
+    position: relative;
+    z-index: 1;
 }
 
 .slide {
@@ -261,6 +283,154 @@ body {
     line-height: 1.6;
 }
 
+/* -------------------------------------------------------- */
+/* Sección de Comentarios/Reseñas */
+.reviews {
+    background-color: var(--blanco);
+    padding: 60px 20px;
+}
+
+.reviews h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--azul-principal);
+    text-transform: uppercase;
+    margin-top: 0;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 60px;
+}
+
+.review-item {
+    background-color: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.review-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(33, 91, 158, 0.2);
+}
+
+.stars {
+    color: #ffc107;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.review-text {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.review-author {
+    font-weight: 600;
+    color: var(--azul-principal);
+    margin: 0;
+}
+
+/* Formulario de comentarios */
+.review-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f5f5f5;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.review-form-container h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: var(--azul-principal);
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.review-form input[type="text"],
+.review-form textarea {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s;
+}
+
+.review-form input[type="text"]:focus,
+.review-form textarea:focus {
+    outline: none;
+    border-color: var(--azul-principal);
+    box-shadow: 0 0 5px rgba(33, 91, 158, 0.3);
+}
+
+.rating-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rating-input label {
+    font-weight: 600;
+    color: #333;
+}
+
+.stars-input {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.stars-input input {
+    display: none;
+}
+
+.stars-input label {
+    font-size: 2rem;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.stars-input input:checked ~ label,
+.stars-input label:hover,
+.stars-input label:hover ~ label {
+    color: #ffc107;
+}
+
+.review-form button {
+    padding: 12px;
+    background-color: var(--azul-principal);
+    color: var(--blanco);
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.review-form button:hover {
+    background-color: #1a4a94;
+}
+
 /* ---------------------------------------------------------------------- */
 /* footer */
 .main-footer {
@@ -336,23 +506,166 @@ body {
     font-size: 1.5rem;
 }
 
-/* -------------------------------------------------------------------- */
-/* Ajuste para móviles */
-@media (max-width: 600px) {
-    .cert-card {
-        flex-direction: column;
-        text-align: center;
+/* -------------------------------------------------------- */
+/* Responsive - Móvil */
+@media (max-width: 768px) {
+    /* Hero Slider */
+    .hero-slider {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 500px;
+        overflow: hidden;
     }
-    .cert-icon {
-        margin-right: 0;
-        margin-bottom: 20px;
+
+    .slider-container-1 {
+        width: 30%;
+        height: 100%;
+        flex-shrink: 0;
+        margin-bottom: 0;
+    }
+
+    .slider-container {
+        width: 70%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 0;
+        padding: 20px;
+        height: 100%;
+    }
+
+    .slide-content {
+        grid-column: 1;
+        grid-row: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        background: linear-gradient(to right, rgba(26, 26, 26, 0.95) 0%, rgba(26, 26, 26, 0.7) 100%);
+        color: var(--blanco);
+        padding: 20px;
+        z-index: 10;
+    }
+
+    .slide-content.active {
+        display: flex;
+        opacity: 1;
+        z-index: 11;
+    }
+
+    .slide {
+        grid-column: 2;
+        grid-row: 1;
+        position: relative;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        overflow: hidden;
+        height: 100%;
+    }
+
+    .slide.active {
+        opacity: 1;
+        z-index: 11;
+    }
+
+    .slide img,
+    .slide video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .slide::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, rgba(26, 26, 26, 0.8) 0%, rgba(26, 26, 26, 0.4) 50%, transparent 100%);
+        z-index: 5;
+        pointer-events: none;
+    }
+
+    .slide-content h2 {
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        margin: 0 0 15px 0;
+        border-bottom: 3px solid var(--azul-principal);
+        display: inline-block;
+    }
+
+    .slide-content p {
+        font-size: 0.9rem;
+        margin: 0;
+    }
+
+    /* Por qué elegirnos */
+    .why-us-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Reviews */
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .review-form-container {
+        padding: 20px;
+    }
+
+    /* Botón WhatsApp */
+    .whatsapp-button {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 15px;
+        font-size: 0.9rem;
     }
 }
 
-/* Responsive (para celulares) */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none; /* Aquí podrías luego agregar un menú hamburguesa */
+@media (max-width: 480px) {
+    .hero-slider {
+        height: auto;
+    }
+
+    .slider-container-1 {
+        height: 250px;
+    }
+
+    .slide {
+        height: 250px;
+    }
+
+    .reviews h2,
+    .why-us h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .slide-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .slide-content p {
+        font-size: 1rem;
+    }
+
+    .whatsapp-button {
+        width: 50px;
+        height: 50px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .whatsapp-button i {
+        font-size: 1.2rem;
     }
 }
+
+/* -------------------------------------------------------- */
 

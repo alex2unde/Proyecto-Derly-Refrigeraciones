@@ -21,11 +21,12 @@
             <nav class="nav-bar">
                 <ul class="nav-links">
                     <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#reviews">Comentarios</a></li>
+                    <li><a href="https://wa.me/5492634375424"">Presupuesto</a></li>
                 </ul>
                 
                 <div class="social-links">
-                    <a href="https://wa.me/5492634375424 " class="icon whatsapp" target="_blank">
+                    <a href="https://wa.me/5492634375424" class="icon whatsapp" target="_blank">
                         <i class="fa-brands fa-whatsapp"></i>
                     </a>
                     <a href="https://facebook.com/tu-pagina" class="icon facebook" target="_blank">
@@ -37,10 +38,10 @@
 </header>
 
     <!-- Seccion de imagenes y videos -->
-<section class="hero-slider">
+<section class="hero-slider" id="inicio">
 
         <div class="slider-container-1">
-            <img class="foto-derly" src="assets\imagenes\image (2).png" alt="Banner Derly Servicios Técnicos">
+            <img class="foto-derly" src="assets\imagenes\derly-chombaGris-sinfondo.png" alt="Banner Derly Servicios Técnicos">
         </div>
 
     <div class="slider-container">
@@ -76,13 +77,13 @@
 
     <!-- Por que elegirnos -->
 <section class="why-us">
-    <div class="container">
+    <div class="container3">
         <h2>¿Por qué elegirnos?</h2>
         <div class="why-us-grid">
             <div class="why-us-item">
-                <i class="fa-solid fa-house"></i>
-                <h3>Servicio a Domicilio</h3>
-                <p>Nos dirigimos a tu hogar o negocio para brindarte soluciones técnicas de calidad.</p>
+                <i class="fa-solid fa-dollar-sign"></i>
+                <h3>Precios Imbatibles</h3>
+                <p>Garantizamos el mejor presupuesto de la zona, sin perder prolijidad y calidad.</p>
             </div>
             <div class="why-us-item">
                 <i class="fa-solid fa-bolt"></i>
@@ -98,12 +99,49 @@
     </div>
 </section>
 
+    <!-- Sección de Comentarios/Reseñas -->
+<section class="reviews" id="reviews">
+    <div class="container2">
+        <h2>¿Que dicen nuestros<br> clientes?</h2>
+
+        <div class="reviews-grid" id="reviewsGrid">
+            <!-- Las reseñas de usuarios aparecerán aquí -->
+        </div>
+    </div>
+        <div class="review-form-container">
+            <h3>Dejanos tu comentario</h3>
+            <form class="review-form" id="reviewForm">
+                <input type="text" id="nombre" placeholder="Nombre" required>
+                <input type="text" id="apellido" placeholder="Apellido" required>
+                <div class="rating-input">
+                    <label>Valoración:</label>
+                    <div class="stars-input">
+                        <input type="radio" name="rating" value="5" id="star5">
+                        <label for="star5"><i class="fa-solid fa-star"></i></label>
+                        <input type="radio" name="rating" value="4" id="star4">
+                        <label for="star4"><i class="fa-solid fa-star"></i></label>
+                        <input type="radio" name="rating" value="3" id="star3">
+                        <label for="star3"><i class="fa-solid fa-star"></i></label>
+                        <input type="radio" name="rating" value="2" id="star2">
+                        <label for="star2"><i class="fa-solid fa-star"></i></label>
+                        <input type="radio" name="rating" value="1" id="star1">
+                        <label for="star1"><i class="fa-solid fa-star"></i></label>
+                    </div>
+                </div>
+                <textarea id="comentario" placeholder="Tu comentario..." rows="5" required></textarea>
+                <button type="submit">Enviar comentario</button>
+            </form>
+        </div>
+    </div>
+</section>
+
     <!-- footer -->
 <footer class="main-footer">
     <div class="container footer-content">
         <div class="footer-contact">
             <p><i class="fa-solid fa-phone"></i> +54 9 263 437-5424</p>
             <p><i class="fa-solid fa-envelope"></i> derlyvillegas692@gmail.com</p>
+            <p>Derly Alexander Villegas - Tecnico en refrigeracion</p>
         </div>
         <div class="footer-dev">
             <p>Desarrollado por <a href="mailto:alexczz89@gmail.com">Alexis Cortez</a></p>
@@ -133,6 +171,80 @@
     <i class="fa-brands fa-whatsapp"></i>
     Pedir presupuesto
 </a>
+
+<!-- funcion para reseñas -->
+    <script>
+    // Obtener reseñas del localStorage
+    function obtenerResenas() {
+        const resenas = localStorage.getItem('resenas');
+        return resenas ? JSON.parse(resenas) : [];
+    }
+
+    // Guardar reseñas en localStorage
+    function guardarResenas(resenas) {
+        localStorage.setItem('resenas', JSON.stringify(resenas));
+    }
+
+    // Mostrar reseñas en la página
+    function mostrarResenas() {
+        const reviewsGrid = document.getElementById('reviewsGrid');
+        const resenas = obtenerResenas();
+
+        reviewsGrid.innerHTML = '';
+
+        if (resenas.length === 0) {
+            reviewsGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #999;">Sé el primero en dejar un comentario</p>';
+            return;
+        }
+
+        resenas.forEach(resena => {
+            const estrellas = '⭐'.repeat(resena.rating);
+            const reviewHTML = `
+                <div class="review-item">
+                    <div class="stars">
+                        ${Array(resena.rating).fill('<i class="fa-solid fa-star"></i>').join('')}
+                    </div>
+                    <p class="review-text">"${resena.comentario}"</p>
+                    <p class="review-author">${resena.nombre} ${resena.apellido}</p>
+                </div>
+            `;
+            reviewsGrid.innerHTML += reviewHTML;
+        });
+    }
+
+    // Manejar el envío del formulario
+    document.getElementById('reviewForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const nombre = document.getElementById('nombre').value;
+        const apellido = document.getElementById('apellido').value;
+        const rating = document.querySelector('input[name="rating"]:checked').value;
+        const comentario = document.getElementById('comentario').value;
+
+        const resena = {
+            nombre,
+            apellido,
+            rating: parseInt(rating),
+            comentario
+        };
+
+        const resenas = obtenerResenas();
+        resenas.unshift(resena); // Agregar al inicio
+        guardarResenas(resenas);
+
+        // Limpiar formulario
+        document.getElementById('reviewForm').reset();
+
+        // Actualizar la vista
+        mostrarResenas();
+
+        alert('¡Comentario enviado correctamente!');
+    });
+
+    // Mostrar reseñas al cargar la página
+    mostrarResenas();
+
+</script>
 
     </body>
 </html>
