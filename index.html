@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derly Servicios Técnicos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header -->
+<header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <a href="#">
+                    <img src="assets\imagenes\derly_logo.png" alt="Derly Servicios Técnicos Logo">
+                </a>
+            </div>
+
+            <nav class="nav-bar">
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                </ul>
+                
+                <div class="social-links">
+                    <a href="https://wa.me/5492634375424 " class="icon whatsapp" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="https://facebook.com/tu-pagina" class="icon facebook" target="_blank">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                </div>
+            </nav>
+        </div>
+</header>
+
+    <!-- Seccion de imagenes y videos -->
+<section class="hero-slider">
+
+        <div class="slider-container-1">
+            <img class="foto-derly" src="assets\imagenes\image (2).png" alt="Banner Derly Servicios Técnicos">
+        </div>
+
+    <div class="slider-container">
+        <div class="slide-content active">
+            <h2>Aire Acondicionado</h2>
+            <p>Instalación, mantenimiento, diagnostico y limpieza.</p>
+        </div>
+        <div class="slide active">
+            <video autoplay muted loop playsinline poster="imagen-de-respaldo.jpg">
+                <source src="assets\videos\derly_aire_video1 (1).mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="slide-content">
+            <h2>Electricidad domiciliaria</h2>
+            <p>Instalaciones eléctricas, desde bajadas y cableado hasta montaje de luminarias, diagnóstico de fallas y reparaciones generales, con enfoque en diagnóstico preventivo y soluciones técnicas.</p>
+        </div>
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1200" alt="Electricidad domiciliaria">
+        </div>
+
+        <div class="slide-content">
+            <h2>Heladeras comerciales y convencionales</h2>
+            <p>Reparación, diagnostico, cargas y mantenimiento general.</p>
+        </div>
+        <div class="slide">
+            <video autoplay muted loop playsinline poster="imagen-de-respaldo.jpg">
+                <source src="assets\videos\derly_limpieza.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+</section>
+
+    <!-- Por que elegirnos -->
+<section class="why-us">
+    <div class="container">
+        <h2>¿Por qué elegirnos?</h2>
+        <div class="why-us-grid">
+            <div class="why-us-item">
+                <i class="fa-solid fa-house"></i>
+                <h3>Servicio a Domicilio</h3>
+                <p>Nos dirigimos a tu hogar o negocio para brindarte soluciones técnicas de calidad.</p>
+            </div>
+            <div class="why-us-item">
+                <i class="fa-solid fa-bolt"></i>
+                <h3>Rápida Respuesta</h3>
+                <p>Atendemos tus consultas y emergencias con la mayor celeridad posible.</p>
+            </div>
+            <div class="why-us-item">
+                <i class="fa-brands fa-whatsapp"></i>
+                <h3>Presupuesto por WhatsApp</h3>
+                <p>Solicita tu presupuesto directamente por WhatsApp de forma rápida y sencilla.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- footer -->
+<footer class="main-footer">
+    <div class="container footer-content">
+        <div class="footer-contact">
+            <p><i class="fa-solid fa-phone"></i> +54 9 263 437-5424</p>
+            <p><i class="fa-solid fa-envelope"></i> derlyvillegas692@gmail.com</p>
+        </div>
+        <div class="footer-dev">
+            <p>Desarrollado por <a href="mailto:alexczz89@gmail.com">Alexis Cortez</a></p>
+        </div>
+    </div>
+</footer>
+
+    <!-- Funcion para el Carrusel -->
+<script>
+    let currentSlide = 0;
+    const slideContents = document.querySelectorAll('.slide-content');
+    const slides = document.querySelectorAll('.slide');
+
+    function nextSlide() {
+        slideContents[currentSlide].classList.remove('active');
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slideContents.length;
+        slideContents[currentSlide].classList.add('active');
+        slides[currentSlide].classList.add('active');
+    }
+
+    setInterval(nextSlide, 12000);
+</script>
+
+    <!-- Boton de whatsapp -->
+<a href="https://wa.me/5492634375424" class="whatsapp-button" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+    Pedir presupuesto
+</a>
+
+    </body>
+</html>

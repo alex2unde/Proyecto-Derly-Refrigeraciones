@@ -1,0 +1,358 @@
+/* Configuración General */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+    --azul-principal: #215b9e; /* Puedes ajustar este azul al de tu logo */
+    --blanco: #ffffff;
+    --negro: #1a1a1a;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* Header */
+.main-header {
+    background-color: var(--azul-principal);
+    height: 90px;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    gap: 200px;
+}
+
+/* Estilo del Logo */
+.logo img {
+    height: 75px; /* Ajusta según el tamaño de tu imagen */
+    display: block;
+}
+
+/* Navegación */
+.nav-bar {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    opacity: 0.8;
+}
+
+/* Iconos y Botón */
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icon {
+    font-size: 24px;
+    color: var(--blanco);
+    text-decoration: none;
+    transition: transform 0.3s;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+}
+
+.whatsapp:hover { color: #25D366; }
+.facebook:hover { color: #1877F2; }
+
+/* -------------------------------------------------------- */
+/* Sección Hero Slider */
+.hero-slider {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 500px; /* Altura del banner */
+    overflow: hidden;
+    background-color: var(--negro);
+}
+
+.slider-container {
+    width: 70%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0;
+    padding: 20px;
+    position: relative;
+}
+
+/* div de la foto */
+.slider-container-1{
+    width: 30%;
+    height: 100%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* foto-derly */
+.foto-derly{
+    position: static;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    display: block;
+    padding: 20px;
+
+}
+
+.slide {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    overflow: hidden;
+    position: relative;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 11;
+}
+
+.slide img,
+.slide video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(26, 26, 26, 0.8) 0%, rgba(26, 26, 26, 0.4) 50%, transparent 100%);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.slide-content {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: left;
+    color: var(--blanco);
+    padding: 20px;
+    z-index: 10;
+    background: linear-gradient(to right, rgba(26, 26, 26, 0.95) 0%, rgba(26, 26, 26, 0.7) 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 100%;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide-content.active {
+    opacity: 1;
+    z-index: 11;
+}
+
+.slide-content h2 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin: 0;
+    border-bottom: 3px solid var(--azul-principal);
+    display: inline-block;
+}
+
+.slide-content p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin: 0;
+}
+
+/* -------------------------------------------------------- */
+/* Sección Por qué elegirnos */
+.why-us {
+    background-color: #f5f5f5;
+    padding: 60px 20px;
+}
+
+.why-us h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--azul-principal);
+    text-transform: uppercase;
+    padding-right: 70px;
+}
+
+.why-us-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.why-us-item {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.why-us-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(33, 91, 158, 0.2);
+}
+
+.why-us-item i {
+    font-size: 3rem;
+    color: var(--azul-principal);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.why-us-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.why-us-item p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* ---------------------------------------------------------------------- */
+/* footer */
+.main-footer {
+    background-color: var(--negro);
+    color: var(--blanco);
+    padding: 40px 0;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+.footer-contact p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+.footer-dev {
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+.footer-dev strong {
+    color: var(--azul-principal);
+}
+
+/* enlace gmail desarrollador */
+.footer-dev a {
+    color: var(--azul-principal);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.footer-dev a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Botón WhatsApp Fixed */
+.whatsapp-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #215b9e;
+    color: var(--blanco);
+    padding: 15px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.whatsapp-button:hover {
+    background-color: #215b9e;
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.whatsapp-button i {
+    font-size: 1.5rem;
+}
+
+/* -------------------------------------------------------------------- */
+/* Ajuste para móviles */
+@media (max-width: 600px) {
+    .cert-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    .cert-icon {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+/* Responsive (para celulares) */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Aquí podrías luego agregar un menú hamburguesa */
+    }
+}
+
