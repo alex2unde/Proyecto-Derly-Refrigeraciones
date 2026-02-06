@@ -197,7 +197,7 @@ body {
     color: var(--blanco);
     padding: 20px;
     z-index: 10;
-    background: linear-gradient(to right, rgba(26, 26, 26, 0.95) 0%, rgba(26, 26, 26, 0.7) 100%);
+    background: linear-gradient(to right, rgba(26, 26, 26, 0.247) 0%, rgba(26, 26, 26, 0.378) 100%);
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -229,7 +229,7 @@ body {
 /* -------------------------------------------------------- */
 /* Sección Por qué elegirnos */
 .why-us {
-    background-color: #f5f5f5;
+    background-image: url('assets/imagenes/trebol-tapiz.png');
     padding: 60px 20px;
 }
 
@@ -286,7 +286,7 @@ body {
 /* -------------------------------------------------------- */
 /* Sección de Comentarios/Reseñas */
 .reviews {
-    background-color: var(--blanco);
+    background-image: url('assets/imagenes/Gemini_Generated_Image_tfk27ttfk27ttfk2 (1).png') ;
     padding: 60px 20px;
 }
 
@@ -437,7 +437,7 @@ body {
     background-color: var(--negro);
     color: var(--blanco);
     padding: 40px 0;
-    margin-top: 50px;
+    /* margin-top: 50px; */
 }
 
 .footer-content {
@@ -484,6 +484,7 @@ body {
     background-color: #215b9e;
     color: var(--blanco);
     padding: 15px 20px;
+    margin-bottom: 37px;
     border-radius: 50px;
     text-decoration: none;
     display: flex;
@@ -509,6 +510,11 @@ body {
 /* -------------------------------------------------------- */
 /* Responsive - Móvil */
 @media (max-width: 768px) {
+
+    .nav-links li{
+        display: none;
+    }
+
     /* Hero Slider */
     .hero-slider {
         display: flex;
@@ -516,6 +522,17 @@ body {
         width: 100%;
         height: 500px;
         overflow: hidden;
+    }
+
+    .foto-derly {
+        bottom: -100px;
+        height: 600px;
+        width: 450px;
+        object-fit: contain;
+        display: block;
+        padding: 10px;
+        position: relative;
+        z-index: 1;
     }
 
     .slider-container-1 {
@@ -603,6 +620,11 @@ body {
         margin: 0;
     }
 
+    .container3 h2{
+        padding-right: 0%;
+        padding-bottom: 20px;
+    }
+
     /* Por qué elegirnos */
     .why-us-grid {
         grid-template-columns: 1fr;
@@ -654,7 +676,7 @@ body {
     }
 
     .whatsapp-button {
-        width: 50px;
+        width: 170px;
         height: 50px;
         padding: 0;
         display: flex;
