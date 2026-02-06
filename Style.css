@@ -229,7 +229,7 @@ body {
 /* -------------------------------------------------------- */
 /* Sección Por qué elegirnos */
 .why-us {
-    background-image: url('assets/imagenes/trebol-tapiz.png');
+    background: #f4f4f4;
     padding: 60px 20px;
 }
 
@@ -286,7 +286,7 @@ body {
 /* -------------------------------------------------------- */
 /* Sección de Comentarios/Reseñas */
 .reviews {
-    background-image: url('assets/imagenes/Gemini_Generated_Image_tfk27ttfk27ttfk2 (1).png') ;
+    background-image: url('assets/imagenes/tapiz-vrebol.png');
     padding: 60px 20px;
 }
 
